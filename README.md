@@ -3,8 +3,10 @@
 This repository is a simple explanation of how to display charts on Biffweb.
 
 What I have done is: 
+
 - Added ApexChart to `ui.clj`
 - Added `/chart` routing
+- Added fixture data
 - Implemented in `chart.clj`
 - Wrote JavaScript in `main.js`
 
