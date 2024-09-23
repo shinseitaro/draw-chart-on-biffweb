@@ -18,3 +18,5 @@ To see chart :
 5. then, you should be able to see a Bar chart at http://localhost:8080/chart.
 
 
+article : 
+[Biffweb で ApexChart を Hyperscript で表示する](https://zenn.dev/shinseitaro/articles/chart-on-biffweb)
