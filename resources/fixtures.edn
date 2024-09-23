@@ -1,10 +1,28 @@
 ;; Biff transaction. See https://biffweb.com/docs/reference/transactions/
-[{:db/doc-type :user
-  :xt/id :db.id/user-a
-  :user/email "a@example.com"
-  :user/foo "Some Value"
-  :user/joined-at :db/now}
- {:db/doc-type :msg
-  :msg/user :db.id/user-a
-  :msg/text "hello there"
-  :msg/sent-at :db/now}]
+[{:db/doc-type :sales
+  :sales/year  1991
+  :sales/data  30}
+ {:db/doc-type :sales
+  :sales/year  1992
+  :sales/data  40}
+ {:db/doc-type :sales
+  :sales/year  1993
+  :sales/data  35}
+ {:db/doc-type :sales
+  :sales/year  1994
+  :sales/data  50}
+ {:db/doc-type :sales
+  :sales/year  1995
+  :sales/data  49}
+ {:db/doc-type :sales
+  :sales/year  1996
+  :sales/data  60}
+ {:db/doc-type :sales
+  :sales/year  1997
+  :sales/data  70}
+ {:db/doc-type :sales
+  :sales/year  1998
+  :sales/data  91}
+ {:db/doc-type :sales
+  :sales/year  1999
+  :sales/data  125}]

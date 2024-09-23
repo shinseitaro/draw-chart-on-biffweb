@@ -12,7 +12,9 @@
             [clojure.tools.namespace.repl :as tn-repl]
             [malli.core :as malc]
             [malli.registry :as malr]
-            [nrepl.cmdline :as nrepl-cmd])
+            [nrepl.cmdline :as nrepl-cmd]
+            [com.example.chart :as chart])
+
   (:gen-class))
 
 (def modules
@@ -20,7 +22,8 @@
    (biff/authentication-module {})
    home/module
    schema/module
-   worker/module])
+   worker/module
+   chart/module])
 
 (def routes [["" {:middleware [mid/wrap-site-defaults]}
               (keep :routes modules)]

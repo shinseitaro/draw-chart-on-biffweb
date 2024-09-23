@@ -29,9 +29,9 @@
 
 (defn add-fixtures []
   (biff/submit-tx (get-context)
-    (-> (io/resource "fixtures.edn")
-        slurp
-        edn/read-string)))
+                  (-> (io/resource "fixtures.edn")
+                      slurp
+                      edn/read-string)))
 
 (defn check-config []
   (let [prod-config (biff/use-aero-config {:biff.config/profile "prod"})
@@ -64,6 +64,12 @@
   ;; restarting your app, and calling add-fixtures again.
   (add-fixtures)
 
+  ;; Query sale data to check test data 
+  (let [{:keys [biff/db] :as ctx} (get-context)]
+    (q db
+       '{:find (pull e [*])
+         :where [[e :sales/data]]}))
+
   ;; Query the database
   (let [{:keys [biff/db] :as ctx} (get-context)]
     (q db
@@ -74,10 +80,10 @@
   (let [{:keys [biff/db] :as ctx} (get-context)
         user-id (biff/lookup-id db :user/email "hello@example.com")]
     (biff/submit-tx ctx
-      [{:db/doc-type :user
-        :xt/id user-id
-        :db/op :update
-        :user/email "new.address@example.com"}]))
+                    [{:db/doc-type :user
+                      :xt/id user-id
+                      :db/op :update
+                      :user/email "new.address@example.com"}]))
 
   (sort (keys (get-context)))
 
